@@ -86,12 +86,16 @@ public class IntentsReceiver extends BroadcastReceiver {
         JSONArray ja = new JSONArray();
         ja.put(jo);
         try {
-            jo = new JSONObject(oOPResults.toGson());
+            OOPResults []oOPResultsArray = new OOPResults[1];
+            oOPResultsArray[0] = oOPResults;
+            //jo = new JSONObject(oOPResults.toGson());
+            JSONArray ja2 = new JSONArray(OOPResults.toGson(oOPResultsArray));
+            ja.put(ja2);
         } catch(org.json.JSONException e) {
             Log.e(TAG,"JSONException: Exception cought in jo.put " + e);
             // Since we have a fallback above we continue
         }
-        ja.put(jo);
+        //ja.put(jo);
 
         Intent intent = new Intent(Constants.XDRIP_PLUS_NS_EMULATOR);
         Bundle bundle = new Bundle();

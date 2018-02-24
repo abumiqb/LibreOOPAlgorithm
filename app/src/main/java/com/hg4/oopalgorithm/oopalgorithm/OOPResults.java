@@ -18,7 +18,7 @@ class HistoricBg {
 
     public int quality;
     public int time;
-    public double bg;
+    public int bg;
 }
 
 public class OOPResults {
@@ -29,7 +29,7 @@ public class OOPResults {
     long timestamp;
     String serialNumber;
 
-    OOPResults(long timestamp, int currentBg, int currentTime TrendArrow currenTrend) {
+    OOPResults(long timestamp, int currentBg, int currentTime, TrendArrow currenTrend) {
 
         this.currentBg = currentBg;
         this.currenTrend = 0;// Translate currenTrend TODO:
@@ -57,5 +57,10 @@ public class OOPResults {
         final Gson gson = new GsonBuilder().create();
         final OOPResults oOPResults = gson.fromJson(oopData, OOPResults.class);
 
+    }
+
+    public static String toGson(OOPResults[] oOPResultsArray) {
+        Gson gson = new GsonBuilder().create();
+        return gson.toJson(oOPResultsArray);
     }
 }
