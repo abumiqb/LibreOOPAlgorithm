@@ -64,7 +64,6 @@ public class AlgorithmRunner {
         DataProcessingOutputs data_processing_outputs = null;
         try {
             data_processing_outputs = data_processing_native.processScan(alarm_configuration, non_actionable_configuration, packet, sensorStartTimestamp, sensorScanTimestamp, currentUtcOffset, oldState);
-
         } catch (DataProcessingException e) {
             Log.e(TAG,"cought exception on data_processing_native.processScan ", e);
             Log.e(TAG,"gson:");
