@@ -42,7 +42,7 @@ import no.bjorninge.LibreReading.LibreReading;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final  String TAG = "OOPAlgorithm";
+    static final  String TAG = "xOOPAlgorithm";
 
     private final String LIBRE_OOP_WEBSITE = "https://libreoopweb.azurewebsites.net";
 
