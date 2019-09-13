@@ -14,6 +14,7 @@ import com.abbottdiabetescare.flashglucose.sensorabstractionservice.dataprocessi
 import com.abbottdiabetescare.flashglucose.sensorabstractionservice.dataprocessing.DataProcessingException;
 import com.abbottdiabetescare.flashglucose.sensorabstractionservice.dataprocessing.GlucoseValue;
 import com.no.bjorninge.librestate.LibreState;
+import com.no.bjorninge.librestate.LibreUsState;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,7 +26,7 @@ import com.abbottdiabetescare.flashglucose.sensorabstractionservice.AttenuationC
 public class AlgorithmRunner {
 
     static public OOPResults RunAlgorithm(long timestamp, Context context, byte[] packet,  byte[] patchUid, byte[] patchInfo, boolean usedefaultstatealways, String sensorid) {
-        byte oldState[];
+        LibreUsState libreUsState;
 
         DataProcessingNative data_processing_native= new DataProcessingNative(1095774808 /*DataProcessingType.APOLLO_PG2*/);
 
@@ -52,15 +53,13 @@ public class AlgorithmRunner {
         int currentUtcOffset = 10800000;
         if(usedefaultstatealways) {
             Log.e(TAG, "dabear: using default oldstate");
-            oldState = LibreState.getDefaultState();
+            libreUsState = LibreState.getDefaultState();
         } else {
             Log.e(TAG, "dabear:  getting state from persistent storage:");
-            oldState = LibreState.getStateForSensor(sensorid, context);
+            libreUsState = LibreState.getStateForSensor(sensorid, context);
         }
 
-
-
-        Log.e(TAG, "dabear: oldstate is now :" + Arrays.toString(oldState));
+        Log.e(TAG, "libreUsState is now :" + libreUsState.toS());
 
 
         
@@ -77,7 +76,7 @@ public class AlgorithmRunner {
         
         try {
             data_processing_outputs = data_processing_native.processScan(alarm_configuration, non_actionable_configuration, attenuationConfiguration, patchUid, patchInfo,  packet, sensorStartTimestamp, sensorScanTimestamp,
-            		60, 20160 /* PatchTimeValues getPatchTimeValues */,  currentUtcOffset, compositeState , attenuationState );
+            		60, 20160 /* PatchTimeValues getPatchTimeValues */,  currentUtcOffset, libreUsState.compositeState , libreUsState.attenuationState );
 
         } catch (DataProcessingException e) {
             Log.e(TAG,"cought DataProcessingException on data_processing_native.processScan ", e);
@@ -101,10 +100,8 @@ public class AlgorithmRunner {
            data_processing_outputs.getAlgorithmResults().getRealTimeGlucose().getValue()+ " id = " +
            data_processing_outputs.getAlgorithmResults().getRealTimeGlucose().getId());
 
-        byte[] newState = null; //???data_processing_outputs.getNewState();
-
         if(sensorid != null) {
-            LibreState.saveSensorState(sensorid, newState, context);
+            LibreState.saveSensorState(sensorid, data_processing_outputs.getNewCompositeState(), data_processing_outputs.getNewAttenuationState() , context);
         }
 
         OOPResults OOPResults = new OOPResults(timestamp,  data_processing_outputs.getAlgorithmResults().getRealTimeGlucose().getValue(),
