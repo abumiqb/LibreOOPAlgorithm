@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import android.util.Log;
 
-class Utils {
+public class Utils {
 
     static final  String TAG = "xOOPAlgorithm";
 
