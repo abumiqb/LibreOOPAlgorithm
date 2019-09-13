@@ -70,18 +70,20 @@ public class AlgorithmRunner {
 
             if(e.getResult() == DataProcessingResult.FATAL_ERROR_BAD_ARGUMENTS) {
                 Log.e(TAG,"Exception is FATAL_ERROR_BAD_ARGUMENTS reseting state");
-                LibreState.getAndSaveDefaultStateForSensor("-NA-", context);
             }
+            LibreState.getAndSaveDefaultStateForSensor("-NA-", context);
             return new OOPResults(timestamp, -2, 0, null);
         } catch (Exception e) {
             Log.e(TAG,"cought exception on data_processing_native.processScan ", e);
+            LibreState.getAndSaveDefaultStateForSensor("-NA-", context);
             return new OOPResults(timestamp, -3, 0, null);
         }
         Log.e(TAG,"data_processing_native.processScan returned successfully " + data_processing_outputs);
         if(data_processing_outputs == null) {
             Log.e(TAG,"data_processing_native.processScan returned null");
             Log.e(TAG,"gson:");
-            return new OOPResults(timestamp,-3, 0, null);
+            LibreState.getAndSaveDefaultStateForSensor("-NA-", context);
+            return new OOPResults(timestamp,-4, 0, null);
         }
         Log.e(TAG,"data_processing_native.processScan returned successfully " + data_processing_outputs.getAlgorithmResults().getRealTimeGlucose().getValue());
 
