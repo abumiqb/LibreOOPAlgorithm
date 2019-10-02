@@ -17,7 +17,7 @@ Open the apk, and make sure that you see the message "Algorithm worked correctly
 
 ### Download and install xdrip on your phone
 (if you already have xdrip on your phone, you will have to remove it first. You can backup your DB and settings first).  
-1) You must use the version from here: https://drive.google.com/file/d/1I7oZw9KRnclsY2MoZgeiRNKNtKv2W44M/view?usp=sharing
+1) You must use the version from here: https://drive.google.com/uc?id=18PM5HJr00GmQ1DafxGdevzTBsYfBCv73&export=download
 1) Choose libre as the sensor type.
 1) Choose miaomiao
 1) Go to settings->hw data source and choose libre wifi
