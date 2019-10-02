@@ -15,21 +15,23 @@ Install the apk: adb install -r LibreOOPAlgorithm.apk<br/>
 Open the apk, and make sure that you see the message "Algorithm worked correctly".<br/>
 
 ### Burn the new fw on your miaomiao2 device (only miaomiao2 right now)
-(1) Download the new fw to your android phone from here: https://drive.google.com/uc?id=1ocJfF4sHZCaBqo-Qs1IuiUAXqf2efQLO&export=download  
-(1) Download the application "nRF connect for Mobile (Norodic semicondutuctor ASA)" from the playstore.  
-(1) Open the nrf connect application.  
-(1) Press scan.  
-(1) press connect on the miaomiao2_xxxx device.  
-(1) Press on "Unknown Service".  
-(1) Press on the "up arrow".  
-(1) A message box will say: Write value, Do you want to reset the device to bootloader? -> press send.  
-(1) A new device will be created with the name: miaomiao2A_XXXX - please see the capital letters used to identify this device.  
-(1) For the last steps, please see the following movie: https://drive.google.com/uc?id=1nfP8dWLcfN3pUofqHE0xLUNWEHdtzfZp&export=download  
-(1) Connect to the new device.  
-(1) Press on DFU (see movie).  
-(1) The new fw will be burned to the miaomiao. Wait till you get to 100%.  
-(1) For the last steps, please see the following movie: https://drive.google.com/uc?id=1JQmJm6VKtwG38QkZoFq4awdJ1EQ-xmFq&export=download  
-(1) Verify that fw version is now 7. See the following image: https://drive.google.com/uc?id=1kRPXooaV5pEEKqMq5d9zzg_OMIKQ_tc8&export=download (you can also verify that fw version is 7 on xDrip. Go to
+1) Download the new fw to your android phone from here: https://drive.google.com/uc?id=1ocJfF4sHZCaBqo-Qs1IuiUAXqf2efQLO&export=download  
+1) Download the application "nRF connect for Mobile (Norodic semicondutuctor ASA)" from the playstore.  
+1) Open the nrf connect application.  
+1) Press scan.  
+1) press connect on the miaomiao2_xxxx device.  
+1) Press on "Unknown Service".  
+1) Press on the "up arrow".  
+1) A message box will say: Write value, Do you want to reset the device to bootloader? -> press send.  
+1) A new device will be created with the name: miaomiao2A_XXXX - please see the capital letters used to identify this device.  
+1) For the last steps, please see the following movie: https://drive.google.com/uc?id=1nfP8dWLcfN3pUofqHE0xLUNWEHdtzfZp&export=download  
+1) Connect to the new device.  
+1) Press on DFU (see movie).  
+1) A dialog saying "Select file type" will be opened. Select "Distrebuation packet (ZIP) and press OK.  
+1) Choose the fw file that you have downloaded on the first step.  
+1) The new fw will be burned to the miaomiao. Wait till you get to 100%.  
+1) For the last steps, please see the following movie: https://drive.google.com/uc?id=1JQmJm6VKtwG38QkZoFq4awdJ1EQ-xmFq&export=download  
+1) Verify that fw version is now 7. See the following image: https://drive.google.com/uc?id=1kRPXooaV5pEEKqMq5d9zzg_OMIKQ_tc8&export=download (you can also verify that fw version is 7 on xDrip. Go to
 status, slide right to Bluetooth status and look at fw version).  
 
 
